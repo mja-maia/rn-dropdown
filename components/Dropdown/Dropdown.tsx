@@ -11,6 +11,7 @@ import { LayoutAnimation } from "react-native";
 
 interface DropdownOptions {
   align?: "left" | "right";
+  iconSize?: number;
 }
 
 const DropdownContext = createContext<DropdownOptions>(null);
@@ -19,7 +20,11 @@ interface IDropdown extends DropdownOptions {
   children: ReactElement<IDropdownItems>;
 }
 
-export default function Dropdown({ children, align = "left" }: IDropdown) {
+export default function Dropdown({
+  children,
+  align = "left",
+  iconSize = 48,
+}: IDropdown) {
   const [toggleDropdown, setToggleDropdown] = useState(false);
 
   const handleToggle = () => {
@@ -31,7 +36,7 @@ export default function Dropdown({ children, align = "left" }: IDropdown) {
     <DropdownContext.Provider value={{ align }}>
       <Container>
         <IconContainer testID="icon" onPress={handleToggle}>
-          <MoreIcon />
+          <MoreIcon iconSize={iconSize} />
         </IconContainer>
         {toggleDropdown && children}
       </Container>

@@ -1,13 +1,17 @@
-import { EllipsisVerticalIcon } from "react-native-heroicons/solid";
 import { defaultTheme } from "../../styles/theme";
 import { Container } from "./styles";
+import { Feather } from "@expo/vector-icons";
 
-export default function MoreIcon() {
+interface IProps {
+  iconSize: number;
+}
+
+export default function MoreIcon({ iconSize }: IProps) {
   return (
     <Container>
-      <EllipsisVerticalIcon
-        width={48}
-        height={48}
+      <Feather
+        name="more-vertical"
+        size={iconSize}
         color={defaultTheme.text.white100}
       />
     </Container>
