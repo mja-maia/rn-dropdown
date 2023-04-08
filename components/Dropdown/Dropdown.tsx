@@ -30,7 +30,7 @@ export default function Dropdown({ children, align = "left" }: IDropdown) {
   return (
     <DropdownContext.Provider value={{ align }}>
       <Container>
-        <IconContainer onPress={handleToggle}>
+        <IconContainer testID="icon" onPress={handleToggle}>
           <MoreIcon />
         </IconContainer>
         {toggleDropdown && children}
@@ -41,13 +41,14 @@ export default function Dropdown({ children, align = "left" }: IDropdown) {
 
 //DROPDOWN ITEMS
 interface IDropdownItems {
-  children: ReactElement<IDropdownItem>[];
+  children: ReactElement<IDropdownItem>[] | ReactElement<IDropdownItem>;
 }
 Dropdown.Items = function DropdownItems({ children }: IDropdownItems) {
   const [itemsHeight, setItemsHeight] = useState(0);
   const { align } = useContext(DropdownContext);
   return (
     <DropdownItemsContainer
+      testID="dropdown-items-list"
       listHeight={itemsHeight}
       align={align}
       onLayout={(event) => {
@@ -67,7 +68,7 @@ interface IDropdownItem {
 }
 Dropdown.Item = function DropdownItem({ children, onPress }: IDropdownItem) {
   return (
-    <DropdownItemContainer onPress={onPress}>
+    <DropdownItemContainer testID="dropdown-item" onPress={onPress}>
       <ItemText>{children}</ItemText>
     </DropdownItemContainer>
   );
