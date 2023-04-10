@@ -1,5 +1,9 @@
 # Dropdown React Native - Concepta
 
+## Note
+
+I chose to invest more time in implementing tests and ensuring the proper usage of TypeScript. I decided to keep the Expo architecture as the default. Additionally, given the time limit of the test (maximum of 3 hours), I deemed it more important to focus on these foundational elements rather than exploring alternative architectures.
+
 ## How to run
 
 1. Clone the project on some folder running `git clone https://github.com/mja-maia/rn-dropdown.git`
